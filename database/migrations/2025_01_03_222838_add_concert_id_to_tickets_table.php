@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('tickets', function (Blueprint $table) {
-            //
-        });
+            $table->string('ticket_code')->unique()->after('id');
+        });        
     }
 
     /**

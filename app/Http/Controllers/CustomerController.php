@@ -22,23 +22,20 @@ class CustomerController extends Controller
 
     public function checkInStore(Request $request)
 {
-    // Cari tiket berdasarkan kode tiket, dengan relasi customer dan event
     $ticket = Ticket::with(['customer', 'event'])->where('ticket_code', $request->ticket_code)->first();
 
-    // Jika tiket tidak ditemukan
     if (!$ticket) {
-        return back()->with('error', 'Data tiket tidak ditemukan');
+        return response()->json(['success' => false, 'message' => '❌ Data tiket tidak ditemukan!'], 404);
     }
 
-    // Jika tiket sudah digunakan untuk check-in
     if ($ticket->status == 1) {
-        return back()->with('error', 'Tiket atas nama ' . $ticket->customer->name . ' sudah melakukan Check In');
+        return response()->json(['success' => false, 'message' => '⚠️ Tiket atas nama ' . $ticket->customer->name . ' sudah digunakan!'], 400);
     }
 
-    // Perbarui status tiket ke checked-in
     $ticket->status = 1;
     $ticket->save();
 
-    return redirect(route('admin.ticket.checkin'))->with('message', 'Check In atas nama ' . $ticket->customer->name . ' Berhasil');
+    return response()->json(['success' => true, 'message' => '✅ Check-in berhasil untuk ' . $ticket->customer->name . '!']);
 }
+
 }

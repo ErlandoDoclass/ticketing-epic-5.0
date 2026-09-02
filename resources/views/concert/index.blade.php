@@ -6,7 +6,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Daftar Konser</h5>
+                        <h5>Daftar Ticket</h5>
                     </div>
                     <div class="card-body">
                         @if(session()->has('message'))
@@ -14,14 +14,14 @@
                                 {{ session()->get('message') }}
                             </div>
                         @endif
-                        <a href="{{route('admin.concert.create')}}" class="btn btn-primary btn-sm">Tambah Konser</a>
+                        <a href="{{route('admin.concert.create')}}" class="btn btn-primary btn-sm">Tambah Ticket</a>
                         <hr>
                         <table class="table">
                             <thead>
                             <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">Nama Konser</th>
-                                <th scope="col">Venue</th>
+                                <th scope="col">Nama Ticket</th>
+                                <th scope="col">Lokasi</th>
                                 <th scope="col">Tanggal Mulai</th>
                                 <th scope="col">Harga Tiket</th>
                                 <th scope="col">Action</th>

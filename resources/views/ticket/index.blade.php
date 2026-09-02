@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-10">
                 <div class="card">
                     <div class="card-header">
                         <h5>Daftar Booking Tiket</h5>
@@ -15,29 +15,28 @@
                             </div>
                         @endif
                         <hr>
-                        <table class="table">
+                        <table class="table table-bordered">
                             <thead>
-                            <tr>
-                                <th scope="col">No</th>
-                                <th scope="col">ID Tiket</th>
-                                <th scope="col">Nama Konser</th>
-                                <th scope="col">Nama Pemesan</th>
-                                <th scope="col">Status Tiket</th>
-                            </tr>
+                                <tr>
+                                    <th scope="col">No</th>
+                                    <th scope="col">ID Tiket</th>
+                                    <th scope="col">Nama Konser</th>
+                                    <th scope="col">Nama Pemesan</th>
+                                    <th scope="col">Status Tiket</th>
+                                </tr>
                             </thead>
                             <tbody>
-                            @php $no=1; @endphp
-                            @foreach($data as $d)
-                                <tr>
-                                    <th scope="row">{{$no}}</th>
-                                    <td>{{$d->ticket_code}}</td>
-                                    <td>{{$d->event->name}}</td>
-                                    <td>{{$d->customer->name}}</td>
-                                    <td>{{$d->status == 0 ? 'Belum Check In' : 'Sudah Check In'}}</td>
-                                    </td>
-                                </tr>
-                                @php $no++ @endphp
-                            @endforeach
+                                @php $no=1; @endphp
+                                @foreach($data as $ticket)
+                                    <tr>
+                                        <th scope="row">{{ $no }}</th>
+                                        <td>{{ $ticket->ticket_code }}</td>
+                                        <td>{{ $ticket->event->name }}</td>
+                                        <td>{{ $ticket->customer->name }}</td>
+                                        <td>{{ $ticket->status == 0 ? 'Belum Check In' : 'Sudah Check In' }}</td>
+                                    </tr>
+                                    @php $no++ @endphp
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

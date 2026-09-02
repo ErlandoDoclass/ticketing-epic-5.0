@@ -4,7 +4,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <h5>Tambah Konser</h5>
+                    <h5>Tambah Ticket</h5>
                 </div>
                 <div class="card-body">
                     <form
@@ -14,7 +14,7 @@
                     >
                         @csrf
                         <div class="mb-3">
-                            <label class="form-label">Nama Konser</label>
+                            <label class="form-label">Nama Ticket</label>
                             <input
                                 type="text"
                                 class="form-control"
@@ -22,7 +22,7 @@
                             />
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Venue</label>
+                            <label class="form-label">Loaksi</label>
                             <input
                                 type="text"
                                 class="form-control"

@@ -1,7 +1,7 @@
 <?php
 return [
     'serverKey' => env('MIDTRANS_SERVERKEY'),
-    'isProduction' => env('MIDTRANS_IS_PRODUCTION'),
+    'isProduction' => env('MIDTRANS_IS_PRODUCTION', false),
     'isSanitized' => env('MIDTRANS_IS_SANITIZED'),
     'is3ds' => env('MIDTRANS_IS_3DS'),
     'clientKey' => env('MIDTRANS_CLIENTKEY'),
